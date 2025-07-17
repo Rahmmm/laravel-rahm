@@ -7,165 +7,131 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f4f2f8; /* very light lavender */
+      background-color: #f9f9f9;
+      color: #2d2d2d;
       margin: 0;
       padding: 0;
-      color: #5a4e7c; /* muted purple text */
     }
 
     .top-bar {
-      background-color: #d6c9ef; /* pastel lavender */
-      color: #3e3260;
+      background-color: #1f1f1f;
+      color: #ffffff;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 10px rgba(146, 134, 189, 0.3);
-      border-radius: 0 0 16px 16px;
+      border-bottom: 1px solid #444;
     }
 
     .top-bar .title {
       font-size: 20px;
       font-weight: 600;
-      letter-spacing: 0.05em;
     }
 
     .top-bar .nav-links a {
-      background-color: #aea1d9; /* pastel purple */
-      color: #3e3260;
-      padding: 10px 18px;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 16px;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background-color 0.3s, transform 0.2s;
-      box-shadow: 0 2px 6px rgba(134, 123, 174, 0.3);
       margin-left: 12px;
-      display: inline-block;
+      transition: background 0.3s ease;
+      font-weight: 600;
     }
 
     .top-bar .nav-links a:hover {
-      background-color: #9c8ed2;
-      transform: scale(1.05);
-      color: #2f244b;
+      background-color: #555;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 800px;
       margin: 40px auto;
-      background: #ebe6f2; /* pastel lavender background */
+      background: #ffffff;
       padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(146, 134, 189, 0.12);
-      color: #4b3b7a;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     h1 {
       text-align: center;
-      color: #3e3260;
-      font-size: 28px;
       margin-bottom: 30px;
-      letter-spacing: 0.05em;
+      font-size: 28px;
       font-weight: 700;
     }
 
     .notification {
-      background-color: #d6c9ef; /* pastel lavender */
-      color: #3e3260;
+      background-color: #e0e0e0;
+      color: #2d2d2d;
       padding: 15px;
-      border-radius: 12px;
+      border-radius: 8px;
       margin-bottom: 20px;
       text-align: center;
       font-weight: 600;
-      box-shadow: 0 2px 8px rgba(146, 134, 189, 0.15);
-      border: 1px solid #aea1d9;
     }
 
     table {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0 12px;
-      background: transparent;
-      margin-top: 10px;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
 
     th, td {
-      padding: 14px 20px;
+      padding: 14px 16px;
       text-align: left;
-      color: #5a4e7c;
-      font-weight: 500;
+      border-bottom: 1px solid #ccc;
     }
 
     th {
+      background-color: #f0f0f0;
       font-weight: 600;
-      letter-spacing: 0.04em;
-      color: #3e3260;
-      border-bottom: 2px solid #aea1d9;
     }
 
-    tbody tr {
-      background-color: #ebe6f2;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px rgba(146, 134, 189, 0.12);
-      transition: background-color 0.3s;
-    }
-
-    tbody tr:hover {
-      background-color: #d6c9ef;
-    }
-
-    tbody tr td {
-      border-bottom: none;
+    tr:hover {
+      background-color: #f5f5f5;
     }
 
     .no-bookings {
       text-align: center;
-      background: #ebe6f2;
       padding: 20px;
-      border-radius: 12px;
       font-weight: 600;
-      color: #5a4e7c;
-      box-shadow: 0 2px 6px rgba(146, 134, 189, 0.3);
+      background-color: #f0f0f0;
+      border-radius: 8px;
       margin-top: 20px;
     }
 
     .action-buttons {
       display: flex;
-      gap: 12px;
+      gap: 10px;
     }
 
     .edit-btn, .delete-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 12px;
-      font-size: 14px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
       font-weight: 600;
-      cursor: pointer;
-      color: #3e3260;
+      font-size: 14px;
       text-decoration: none;
-      background-color: #aea1d9; /* pastel purple */
-      box-shadow: 0 2px 6px rgba(134, 123, 174, 0.3);
-      transition: background-color 0.3s, transform 0.2s;
-      user-select: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border: none;
+    }
+
+    .edit-btn {
+      background-color: #444;
+      color: #fff;
     }
 
     .edit-btn:hover {
-      background-color: #9c8ed2;
-      transform: scale(1.05);
-      color: #2f244b;
+      background-color: #666;
     }
 
     .delete-btn {
-      background-color: #d6c9ef; /* lighter pastel purple */
+      background-color: #888;
+      color: #fff;
     }
 
     .delete-btn:hover {
-      background-color: #c4bde8;
-      transform: scale(1.05);
-      color: #2f244b;
+      background-color: #aaa;
     }
 
     form {
